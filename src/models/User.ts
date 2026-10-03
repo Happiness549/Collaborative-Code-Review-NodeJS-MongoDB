@@ -5,20 +5,25 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-      email: {
+
+    email: {
         type: String,
-        required: true, 
+        required: true,
         unique: true
     },
-      password: {
+
+    password: {
         type: String,
         required: true
     },
+
     role: {
         type: String,
         enum: ["Reviewer", "Submitter"],
         required: true
     }
+}, {
+    timestamps: true
 });
 
 export const User = mongoose.model("User", userSchema);
